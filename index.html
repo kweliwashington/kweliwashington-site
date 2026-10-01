@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kweli Washington — Fractional C-Suite Executive</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    --bg: #FAF7F4;
+    --bg-alt: #F3EBE7;
+    --ink: #1C1C22;
+    --ink-soft: #5B5D64;
+    --sakura: #F0BDB6;
+    --sakura-deep: #D62828;
+    --steel: #33414F;
+    --steel-soft: #7D8A96;
+    --accent: #CB4632;
+    --stat-red: #D62828;
+    --rule: #E3D8D2;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Work Sans', -apple-system, sans-serif;
+  }
+  a { color: inherit; text-decoration: none; }
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sakura-deep);
+  }
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-inline: clamp(24px, 5vw, 64px);
+    box-sizing: border-box;
+  }
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    padding: 8px 2px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .nav-link:hover { color: var(--ink); border-color: var(--sakura-deep); }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #FFFDFB;
+    background: var(--accent);
+    padding: 14px 26px;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-primary:hover { background: #B23A29; transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--ink);
+    padding: 13px 25px;
+    border-radius: 2px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .btn-secondary:hover { background: var(--ink); color: #FFFDFB; }
+  .card {
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 32px 28px;
+  }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 18px 0 10px;
+  }
+  .card-body {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4vw, 44px);
+    font-weight: 500;
+    color: var(--stat-red);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+  .track-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .track-dot {
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sakura-deep);
+    margin-top: 9px;
+  }
+  .track-text {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 0;
+  }
+  .role-card {
+    border-left: 2px solid var(--sakura);
+    padding-left: 24px;
+  }
+  .role-org {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+  .role-body {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .gateway-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    min-width: 0;
+    background: transparent;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .gateway-card:hover {
+    box-shadow: 0 10px 26px rgba(28,28,34,0.1);
+  }
+  .gateway-logo {
+    height: 34px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px 4px;
+    box-sizing: border-box;
+  }
+  .gateway-logo-placeholder {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+  .gateway-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 14px 10px;
+    border-top: 1px solid transparent;
+    box-sizing: border-box;
+  }
+  .gateway-org {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .gateway-word {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+    text-align: center;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+  .gateway-sub {
+    font-family: var(--font-body);
+    font-size: 11px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: var(--ink-soft);
+    margin: 6px 0 0;
+    text-align: justify;
+    text-align-last: left;
+    overflow-wrap: break-word;
+  }
+  .gateway-word-inline {
+    font-weight: 700;
+    color: #000000;
+  }
+  .gateway-arrow {
+    position: absolute;
+    right: 16px;
+    bottom: 14px;
+    opacity: 0.55;
+  }
+  .floor-panel {
+    position: absolute;
+    background: #FFFFFF;
+    clip-path: polygon(12.5% 0%, 87.5% 0%, 100% 100%, 0% 100%);
+    filter: drop-shadow(0 6px 14px rgba(28,28,34,0.10));
+    text-decoration: none;
+    transition: filter 0.15s ease;
+  }
+  .floor-panel:hover {
+    filter: drop-shadow(0 10px 20px rgba(28,28,34,0.16));
+  }
+  .floor-panel-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 15% 8%;
+    box-sizing: border-box;
+  }
+  .floor-logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .floor-word {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+    text-align: center;
+  }
+  .floor-sub {
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    margin: 4px 0 0;
+    text-align: center;
+    max-width: 92%;
+  }
+  @media (max-width: 1000px) {
+    .floor-container { position: static !important; height: auto !important; display: flex !important; flex-direction: column !important; gap: 16px !important; }
+    .floor-panel { position: static !important; width: 100% !important; height: auto !important; clip-path: none !important; border: 1px solid var(--rule); }
+    .floor-panel-inner { position: static !important; padding: 16px 16px 20px !important; }
+  }
+  .contact-link {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    border-bottom: 1px solid var(--sakura-deep);
+    padding-bottom: 2px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+  .bp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 14px;
+    grid-template-areas:
+      "logo1 logo2 logo3"
+      "text1 text2 text3";
+  }
+  .bp-logo1 { grid-area: logo1; align-self: end; }
+  .bp-logo2 { grid-area: logo2; align-self: end; }
+  .bp-logo3 { grid-area: logo3; align-self: end; }
+  .bp-text1 { grid-area: text1; }
+  .bp-text2 { grid-area: text2; }
+  .bp-text3 { grid-area: text3; }
+  @media (max-width: 720px) {
+    .hide-mobile { display: none !important; }
+    .fan-container { position: static !important; height: auto !important; display: flex !important; flex-direction: column !important; gap: 14px !important; }
+    .fan-container .gateway-card { position: static !important; width: 100% !important; height: auto !important; transform: none !important; }
+    .fan-container .gateway-logo { height: 56px !important; }
+    .grid-mobile-1 { grid-template-columns: 1fr !important; }
+    .hero-h1 { white-space: normal !important; font-size: clamp(28px,7vw,34px) !important; }
+    #hero-grid { gap: 32px !important; }
+    .bp-grid {
+      grid-template-columns: 1fr !important;
+      grid-template-areas:
+        "logo1"
+        "text1"
+        "logo2"
+        "text2"
+        "logo3"
+        "text3" !important;
+      row-gap: 10px !important;
+    }
+    .bp-logo1, .bp-logo2, .bp-logo3 { align-self: start !important; margin-top: 14px; }
+    .bp-logo1 { margin-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div style="width:100%; min-height:100vh; background:var(--bg); font-family:var(--font-body); color:var(--ink); overflow-x:hidden; position:relative;">
+
+  <!-- ============ NAV ============ -->
+  <div style="border-bottom:1px solid var(--rule); position:relative; z-index:5; background:var(--bg);">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; height:76px;">
+      <a href="#top" style="font-family:var(--font-display); font-size:18px; font-weight:600; letter-spacing:0.01em; color:var(--ink);">Kweli Washington</a>
+      <div style="display:flex; align-items:center; gap:32px;" class="hide-mobile">
+        <a href="#background" class="nav-link">Background</a>
+        <a href="#working-with-me" class="nav-link">Working&nbsp;With&nbsp;Me</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <div id="top" style="position:relative; overflow:hidden; border-bottom:1px solid var(--rule);">
+
+    <!-- ambient skyline motif -->
+    <svg width="100%" height="100%" viewBox="0 0 1440 760" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.7; pointer-events:none;" aria-hidden="true">
+      <line x1="1080" y1="0" x2="1080" y2="760" stroke="var(--steel-soft)" stroke-width="1" opacity="0.22"/>
+      <line x1="1160" y1="0" x2="1160" y2="760" stroke="var(--steel-soft)" stroke-width="1" opacity="0.16"/>
+      <line x1="1240" y1="0" x2="1240" y2="760" stroke="var(--steel-soft)" stroke-width="1" opacity="0.26"/>
+      <line x1="1320" y1="0" x2="1320" y2="760" stroke="var(--steel-soft)" stroke-width="1" opacity="0.14"/>
+      <line x1="1400" y1="0" x2="1400" y2="760" stroke="var(--steel)" stroke-width="1.5" opacity="0.32"/>
+    </svg>
+
+    <div class="container" style="padding-top:88px; padding-bottom:88px; position:relative;">
+
+      <!-- Headline spans the full width of both columns below -->
+      <p class="eyebrow" style="margin:0 0 20px;">Fractional Operations Executive</p>
+      <h1 class="hero-h1" style="font-family:var(--font-display); font-weight:500; font-size:clamp(22px,2.6vw,38px); line-height:1.12; color:var(--ink); margin:0 0 40px; max-width:none; white-space:nowrap;">
+        I help companies do big things without coming apart.
+      </h1>
+
+      <div style="border-top:3px solid var(--steel); border-bottom:3px solid var(--steel); padding-top:28px; padding-bottom:28px;">
+
+      <div id="hero-grid" style="display:grid; grid-template-columns:1.6fr 1fr; gap:48px; align-items:start;" class="grid-mobile-1">
+
+        <!-- LEFT: Piano story + takeaway -->
+        <div>
+          <p class="eyebrow" style="margin:0 0 10px;">Last 12 Years</p>
+
+          <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:14px; flex-wrap:wrap;">
+            <img src="images/piano-logo.png" alt="Piano" style="height:28px; width:auto; display:block; transform:translateY(4px);">
+            <p style="font-family:var(--font-body); font-size:18px; font-weight:700; color:var(--ink); margin:0;">Scaled Growth from 0 to $100M</p>
+          </div>
+
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink-soft); margin:0 0 16px; text-align:justify; text-align-last:left;">
+            As COO and later Chief People Officer of Piano Software, the digital revenue platform powering the subscription businesses of hundreds of the world's leading media brands, I built the operational underpinning to grow from a few people in a New York apartment with no product or revenue to the dominant software suite in category, powered by 670 staff around the world, and generating $100M in annual revenue and 10% EBITDA.
+          </p>
+
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink-soft); margin:0 0 24px; text-align:justify; text-align-last:left;">
+            Now I do that for investors and the leaders they back, as a fractional executive.
+          </p>
+
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink); margin:0; font-weight:700; text-align:justify; text-align-last:left;">
+            I've learned what works by solving these problems as they come in real time in the face of real consequences for failure. I gather the requirements, plan the implementation, stay close through the early rounds of getting it right, and train your team in the know-how and conviction to own it going forward.
+          </p>
+        </div>
+
+        <!-- RIGHT: Prior Experience -->
+        <div>
+          <p class="eyebrow" style="margin:0 0 16px;">Prior Experience</p>
+
+          <a href="#case-bcg" style="display:flex; align-items:center; gap:16px; text-decoration:none; margin-bottom:22px;">
+            <div style="flex:0 0 72px; display:flex; align-items:center;">
+              <img src="images/bcg-logo.webp" alt="BCG" style="height:24px; width:auto; max-width:100%; object-fit:contain; display:block;">
+            </div>
+            <div>
+              <p style="font-family:var(--font-body); font-size:16px; font-weight:700; color:#000000; margin:0 0 4px;">Integration</p>
+              <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink-soft); margin:0;">Post-merger integration at Fortune 100 companies.</p>
+            </div>
+          </a>
+
+          <a href="#case-cuegroup" style="display:flex; align-items:center; gap:16px; text-decoration:none; margin-bottom:22px;">
+            <div style="flex:0 0 72px; display:flex; align-items:center;">
+              <img src="images/cuegroup-logo.png" alt="Cue Group" style="height:24px; width:auto; max-width:100%; object-fit:contain; display:block;">
+            </div>
+            <div>
+              <p style="font-family:var(--font-body); font-size:16px; font-weight:700; color:#000000; margin:0 0 4px;">Transformation</p>
+              <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink-soft); margin:0;">Change management in the public sector.</p>
+            </div>
+          </a>
+
+          <a href="#case-google" style="display:flex; align-items:center; gap:16px; text-decoration:none;">
+            <div style="flex:0 0 72px; display:flex; align-items:center;">
+              <img src="images/google-logo.png" alt="Google" style="height:40px; width:auto; max-width:100%; object-fit:contain; display:block;">
+            </div>
+            <div>
+              <p style="font-family:var(--font-body); font-size:16px; font-weight:700; color:#000000; margin:0 0 4px;">Optimization</p>
+              <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink-soft); margin:0;">Salesforce effectiveness to drive performance.</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      </div>
+
+      <div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-top:32px;">
+        <a href="#contact" class="btn-primary">
+          Get in touch
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#background" class="btn-secondary">See the record</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ WORKING WITH ME ============ -->
+  <div id="working-with-me" style="background:var(--bg-alt); border-bottom:1px solid var(--rule);">
+    <div class="container" style="padding-top:88px; padding-bottom:88px;">
+      <p class="eyebrow" style="margin:0 0 16px;">Working With Me</p>
+      <h2 style="font-family:var(--font-display); font-weight:500; font-size:clamp(28px,3.4vw,38px); color:var(--ink); margin:0 0 20px; max-width:720px;">
+        A doer, brought in with intent, expected to build better, and then move on.
+      </h2>
+      <p style="font-family:var(--font-body); font-size:17px; line-height:1.7; color:var(--ink-soft); max-width:700px; margin:0 0 48px;">
+        Investors bring me in when a portfolio company needs an outside operator. CEOs bring me in when they want a partner who has already built what they're building. I start with a candid assessment of what's working and what isn't, then step in as an interim executive, fully immersed inside the company, not as an outside advisor, lending it my credibility while I'm there and working alongside the leadership team already in place.
+      </p>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;" class="grid-mobile-1">
+        <div class="card">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg>
+          <h3 class="card-title">Understand first</h3>
+          <p class="card-body">A fast, honest read of the business, the organization, and how it runs, ending in a clear plan.</p>
+        </div>
+        <div class="card">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>
+          <h3 class="card-title">Operate in partnership</h3>
+          <p class="card-body">I take the wheel where it's needed and work alongside your leaders, not around them.</p>
+        </div>
+        <div class="card">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6"><path d="M4 19h16"/><path d="M4 19V9l5-4 5 4v10"/><path d="M14 19v-6l5-3v9"/></svg>
+          <h3 class="card-title">Built to outlast me</h3>
+          <p class="card-body">I install the systems and teach your leaders to run them, so the company never depends on me and I leave it stronger than I found it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TRACK RECORD ============ -->
+  <div id="background">
+    <div class="container" style="padding-top:88px; padding-bottom:32px;">
+      <p class="eyebrow" style="margin:0 0 16px;">Track Record</p>
+      <h2 style="font-family:var(--font-display); font-weight:500; font-size:clamp(28px,3.4vw,38px); color:var(--ink); margin:0 0 48px; max-width:720px;">
+        Piano: pre-product to $100M, built to last.
+      </h2>
+
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:32px; padding-bottom:56px; border-bottom:1px solid var(--rule); margin-bottom:8px;" class="grid-mobile-1">
+        <div>
+          <div class="stat-num">$100M</div>
+          <div class="stat-label">Annual revenue, from pre-product and pre-revenue</div>
+        </div>
+        <div>
+          <div class="stat-num">80%</div>
+          <div class="stat-label">Of the largest media companies as clients</div>
+        </div>
+        <div>
+          <div class="stat-num">670</div>
+          <div class="stat-label">Peak headcount, up from 6 at the start</div>
+        </div>
+        <div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">International acquisitions planned and integrated</div>
+        </div>
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Tech/Support Centers of Excellence launched</div>
+        </div>
+      </div>
+
+      <div style="padding-top:8px; padding-bottom:24px;">
+        <div class="track-item" style="border-top:none; padding-top:0;">
+          <div class="track-dot"></div>
+          <p class="track-text">Took the company from 6 people to a peak of 670, hiring and onboarding 1,000+ people over 12 years, and built a 19-person HR function to support it.</p>
+        </div>
+        <div class="track-item">
+          <div class="track-dot"></div>
+          <p class="track-text">Planned and led the integration of five international acquisitions, adding $60M in revenue and building a 14-office global footprint.</p>
+        </div>
+        <div class="track-item">
+          <div class="track-dot"></div>
+          <p class="track-text">Pulled 500+ employees across France, Norway, the Netherlands, Germany, Ukraine, and Russia into one company with a shared culture, single HRIS, an intranet, a shared knowledge system, exchange programs, and unified titles and salary bands. Voluntary turnover stayed under 10%, and we earned recognition from Inc. Magazine, Red Herring, and PACT.</p>
+        </div>
+        <div class="track-item">
+          <div class="track-dot"></div>
+          <p class="track-text">When the war in Ukraine put our teams in Ukraine and Russia at risk, I led the relocation of 40 staff to safety and kept operations running through the disruption.</p>
+        </div>
+        <div class="track-item">
+          <div class="track-dot"></div>
+          <p class="track-text">As COO, I ran the global senior leadership team, oversaw the build-out of our headquarters and main European offices, and owned executive goal-setting.</p>
+        </div>
+        <div class="track-item">
+          <div class="track-dot"></div>
+          <p class="track-text">As CPO, I hired C-level executives, staffed large sales teams, and led reductions in force when the market required them.</p>
+        </div>
+        <div class="track-item">
+          <div class="track-dot"></div>
+          <p class="track-text">Managed the business to a 10% EBITDA margin.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BEFORE PIANO ============ -->
+  <div id="before-piano" style="background:var(--bg-alt); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+    <div class="container" style="padding-top:88px; padding-bottom:88px;">
+      <p class="eyebrow" style="margin:0 0 16px;">Before Piano</p>
+      <h2 style="font-family:var(--font-display); font-weight:500; font-size:clamp(26px,3vw,38px); color:var(--ink); margin:0 0 48px; max-width:960px; white-space:normal;">
+        A foundation in facilitating change at&nbsp;scale.
+      </h2>
+
+      <div class="bp-grid">
+        <div class="bp-logo1">
+          <img src="images/bcg-logo.webp" alt="Boston Consulting Group" style="height:22px; width:auto; max-width:100%; object-fit:contain; display:block;">
+        </div>
+        <div class="bp-logo2">
+          <img src="images/cuegroup-logo.png" alt="Cue Group" style="height:44px; width:auto; max-width:100%; object-fit:contain; display:block;">
+        </div>
+        <div class="bp-logo3">
+          <img src="images/google-logo.png" alt="Google" style="height:64px; width:auto; max-width:100%; object-fit:contain; display:block;">
+        </div>
+        <div class="role-card bp-text1" id="case-bcg">
+          <p class="role-body">I started my career leading post-merger integrations at Fortune 100 companies, running the PMOs and the teams that designed the combined organizations and delivered promised cost savings and revenue synergies.</p>
+        </div>
+        <div class="role-card bp-text2" id="case-cuegroup">
+          <p class="role-body">For ten years I ran my own consulting firm, leading transformations at the NAACP, the Sierra Club, People For the American Way, the New York City Department of Education, and members of Congress. Clients saw revenue gains of 5&ndash;10% and comparable cuts in operating costs.</p>
+        </div>
+        <div class="role-card bp-text3" id="case-google">
+          <p class="role-body">I was a founding member of the strategy and operations group for publisher business solutions. I led salesforce optimization, verticalization, and total rewards planning, which drove growth and improved employee satisfaction in a large sales team of 200 whose products were already massive market leaders.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PRACTICAL EXPERIENCE + ACADEMIC RIGOR ============ -->
+  <div id="practical-academic" style="border-bottom:1px solid var(--rule);">
+    <div class="container" style="padding-top:88px; padding-bottom:88px;">
+      <p class="eyebrow" style="margin:0 0 40px;">Practical experience + academic rigor</p>
+
+      <div style="display:flex; flex-direction:column; gap:0;">
+
+        <!-- Row 1: Harvard -->
+        <div style="display:grid; grid-template-columns:0.6fr 0.9fr 1.8fr; gap:32px; align-items:center; padding:28px 0; border-top:1px solid var(--rule);" class="grid-mobile-1">
+          <div style="display:flex; align-items:center; justify-content:flex-start; height:48px;">
+            <img src="images/harvard-logo.png" alt="Harvard" style="height:100%; width:auto; max-width:100%; object-fit:contain; display:block;">
+          </div>
+          <div>
+            <h3 class="role-org" style="margin:0 0 2px;">Harvard University</h3>
+            <p style="font-family:var(--font-body); font-size:14px; color:var(--ink-soft); margin:0;">A.B., Anthropology and Social Studies</p>
+          </div>
+          <ul style="margin:0; padding-left:18px; font-family:var(--font-body); font-size:15px; line-height:1.6; color:var(--ink-soft);">
+            <li>Degree: A.B.</li>
+            <li>Major: Anthropology and Social Studies</li>
+            <li>Trained me to read organizations as cultures, not just org charts &mdash; a lens I still use to diagnose why change efforts succeed or stall.</li>
+          </ul>
+        </div>
+
+        <!-- Row 2: Oxford -->
+        <div style="display:grid; grid-template-columns:0.6fr 0.9fr 1.8fr; gap:32px; align-items:center; padding:28px 0; border-top:1px solid var(--rule);" class="grid-mobile-1">
+          <div style="display:flex; align-items:center; justify-content:flex-start; height:48px;">
+            <img src="images/oxford-logo.png" alt="Oxford" style="height:100%; width:auto; max-width:100%; object-fit:contain; display:block;">
+          </div>
+          <div>
+            <h3 class="role-org" style="margin:0 0 2px;">University of Oxford</h3>
+            <p style="font-family:var(--font-body); font-size:14px; color:var(--ink-soft); margin:0;">M.Phil., Development Studies, Lincoln College (Rhodes Scholar)</p>
+          </div>
+          <ul style="margin:0; padding-left:18px; font-family:var(--font-body); font-size:15px; line-height:1.6; color:var(--ink-soft);">
+            <li>Degree: M.Phil.</li>
+            <li>Major: Development Studies</li>
+            <li>Sharpened how I weigh evidence and tradeoffs under uncertainty &mdash; the same discipline I bring to operating decisions today.</li>
+          </ul>
+        </div>
+
+        <!-- Row 3: Columbia -->
+        <div style="display:grid; grid-template-columns:0.6fr 0.9fr 1.8fr; gap:32px; align-items:center; padding:28px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);" class="grid-mobile-1">
+          <div style="display:flex; align-items:center; justify-content:flex-start; height:48px;">
+            <img src="images/columbia-logo.png" alt="Columbia SIPA" style="height:auto; max-height:100%; width:auto; max-width:100%; object-fit:contain; display:block;">
+          </div>
+          <div>
+            <h3 class="role-org" style="margin:0 0 2px;">Columbia University</h3>
+            <p style="font-family:var(--font-body); font-size:14px; color:var(--ink-soft); margin:0;">Adjunct Professor</p>
+          </div>
+          <ul style="margin:0; padding-left:18px; font-family:var(--font-body); font-size:15px; line-height:1.6; color:var(--ink-soft);">
+            <li>Role: Adjunct Professor in Executive MPA Program</li>
+            <li>Subject: Change Management, Digital Media in the Public Sphere, Research Methods for Practitioners</li>
+            <li>Teaching forces me to turn what I've done in practice into frameworks other operators can actually use.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONTACT ============ -->
+  <div id="contact">
+    <div class="container" style="padding-top:96px; padding-bottom:112px;">
+      <div style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:center;" class="grid-mobile-1">
+        <div>
+          <p class="eyebrow" style="margin:0 0 16px;">Get In Touch</p>
+          <h2 style="font-family:var(--font-display); font-weight:500; font-size:clamp(28px,3.6vw,40px); color:var(--ink); margin:0 0 24px; max-width:480px;">
+            If your portfolio company needs an operator, let's talk.
+          </h2>
+          <p style="font-family:var(--font-body); font-size:16px; line-height:1.65; color:var(--ink-soft); max-width:460px; margin:0 0 32px;">
+            I typically hear from investors first, and from the CEOs they back soon after. Either is a good place to start.
+          </p>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <a href="mailto:kweli.washington@gmail.com" class="contact-link" style="width:fit-content;">kweli.washington@gmail.com</a>
+            <a href="https://www.linkedin.com/in/kweli-washington-178458" target="_blank" rel="noopener" class="contact-link" style="width:fit-content;">linkedin.com/in/kweli-washington</a>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+          <img src="images/kweli-portrait.jpg" alt="Portrait of Kweli Washington" style="width:240px; height:240px; border-radius:50%; object-fit:cover; box-shadow:0 8px 28px rgba(28,28,34,0.12);">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div style="border-top:1px solid var(--rule); background:var(--bg-alt);">
+    <div class="container" style="padding-top:28px; padding-bottom:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <p style="font-family:var(--font-body); font-size:13px; color:var(--ink-soft); margin:0;">&copy; 2026 Kweli Washington</p>
+      <p style="font-family:var(--font-body); font-size:13px; color:var(--ink-soft); margin:0;">Philadelphia</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

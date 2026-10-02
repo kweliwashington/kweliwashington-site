@@ -313,6 +313,14 @@
   .bp-text1 { grid-area: text1; }
   .bp-text2 { grid-area: text2; }
   .bp-text3 { grid-area: text3; }
+  #hero-grid {
+    grid-template-areas:
+      "story prior"
+      "story photo";
+  }
+  .hero-story { grid-area: story; }
+  .hero-prior { grid-area: prior; }
+  .hero-photo { grid-area: photo; display: flex; justify-content: flex-start; align-items: start; }
   @media (max-width: 720px) {
     .hide-mobile { display: none !important; }
     .fan-container { position: static !important; height: auto !important; display: flex !important; flex-direction: column !important; gap: 14px !important; }
@@ -334,11 +342,12 @@
     }
     .bp-logo1, .bp-logo2, .bp-logo3 { align-self: start !important; margin-top: 14px; }
     .bp-logo1 { margin-top: 0; }
+    #hero-grid { grid-template-areas: "photo" "story" "prior" !important; }
+    .hero-photo { justify-content: center !important; margin-bottom: 8px !important; }
   }
 </style>
 </head>
 <body>
-
 <div style="width:100%; min-height:100vh; background:var(--bg); font-family:var(--font-body); color:var(--ink); overflow-x:hidden; position:relative;">
 
   <!-- ============ NAV ============ -->
@@ -378,7 +387,7 @@
       <div id="hero-grid" style="display:grid; grid-template-columns:1.6fr 1fr; gap:48px; align-items:start;" class="grid-mobile-1">
 
         <!-- LEFT: Piano story + takeaway -->
-        <div>
+        <div class="hero-story">
           <p class="eyebrow" style="margin:0 0 10px;">Last 12 Years</p>
 
           <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:14px; flex-wrap:wrap;">
@@ -386,21 +395,21 @@
             <p style="font-family:var(--font-body); font-size:18px; font-weight:700; color:var(--ink); margin:0;">Scaled Growth from 0 to $100M</p>
           </div>
 
-          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink-soft); margin:0 0 16px; text-align:justify; text-align-last:left;">
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink-soft); margin:0 0 16px; text-align:left;">
             As COO and later Chief People Officer of Piano Software, the digital revenue platform powering the subscription businesses of hundreds of the world's leading media brands, I built the operational underpinning to grow from a few people in a New York apartment with no product or revenue to the dominant software suite in category, powered by 670 staff around the world, and generating $100M in annual revenue and 10% EBITDA.
           </p>
 
-          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink-soft); margin:0 0 24px; text-align:justify; text-align-last:left;">
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink-soft); margin:0 0 24px; text-align:left;">
             Now I do that for investors and the leaders they back, as a fractional executive.
           </p>
 
-          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink); margin:0; font-weight:700; text-align:justify; text-align-last:left;">
+          <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink); margin:0; font-weight:700; text-align:left;">
             I've learned what works by solving these problems as they come in real time in the face of real consequences for failure. I gather the requirements, plan the implementation, stay close through the early rounds of getting it right, and train your team in the know-how and conviction to own it going forward.
           </p>
         </div>
 
         <!-- RIGHT: Prior Experience -->
-        <div>
+        <div class="hero-prior">
           <p class="eyebrow" style="margin:0 0 16px;">Prior Experience</p>
 
           <a href="#case-bcg" style="display:flex; align-items:center; gap:16px; text-decoration:none; margin-bottom:22px;">
@@ -432,6 +441,11 @@
               <p style="font-family:var(--font-body); font-size:17px; line-height:1.65; color:var(--ink-soft); margin:0;">Salesforce effectiveness to drive performance.</p>
             </div>
           </a>
+        </div>
+
+        <!-- PHOTO: lower-right on desktop, first on mobile -->
+        <div class="hero-photo">
+          <img src="images/kweli-portrait.jpg" alt="Portrait of Kweli Washington" style="width:168px; height:168px; border-radius:50%; object-fit:cover; box-shadow:0 8px 28px rgba(28,28,34,0.12);">
         </div>
 
       </div>
@@ -547,7 +561,7 @@
   <!-- ============ BEFORE PIANO ============ -->
   <div id="before-piano" style="background:var(--bg-alt); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
     <div class="container" style="padding-top:88px; padding-bottom:88px;">
-      <p class="eyebrow" style="margin:0 0 16px;">Before Piano</p>
+      <p class="eyebrow" style="margin:0 0 16px;">Prior Experience</p>
       <h2 style="font-family:var(--font-display); font-weight:500; font-size:clamp(26px,3vw,38px); color:var(--ink); margin:0 0 48px; max-width:960px; white-space:normal;">
         A foundation in facilitating change at&nbsp;scale.
       </h2>
@@ -637,22 +651,17 @@
   <!-- ============ CONTACT ============ -->
   <div id="contact">
     <div class="container" style="padding-top:96px; padding-bottom:112px;">
-      <div style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:center;" class="grid-mobile-1">
-        <div>
-          <p class="eyebrow" style="margin:0 0 16px;">Get In Touch</p>
-          <h2 style="font-family:var(--font-display); font-weight:500; font-size:clamp(28px,3.6vw,40px); color:var(--ink); margin:0 0 24px; max-width:480px;">
-            If your portfolio company needs an operator, let's talk.
-          </h2>
-          <p style="font-family:var(--font-body); font-size:16px; line-height:1.65; color:var(--ink-soft); max-width:460px; margin:0 0 32px;">
-            I typically hear from investors first, and from the CEOs they back soon after. Either is a good place to start.
-          </p>
-          <div style="display:flex; flex-direction:column; gap:14px;">
-            <a href="mailto:kweli.washington@gmail.com" class="contact-link" style="width:fit-content;">kweli.washington@gmail.com</a>
-            <a href="https://www.linkedin.com/in/kweli-washington-178458" target="_blank" rel="noopener" class="contact-link" style="width:fit-content;">linkedin.com/in/kweli-washington</a>
-          </div>
-        </div>
-        <div style="display:flex; justify-content:center;">
-          <img src="images/kweli-portrait.jpg" alt="Portrait of Kweli Washington" style="width:240px; height:240px; border-radius:50%; object-fit:cover; box-shadow:0 8px 28px rgba(28,28,34,0.12);">
+      <div style="max-width:620px;">
+        <p class="eyebrow" style="margin:0 0 16px;">Get In Touch</p>
+        <h2 style="font-family:var(--font-display); font-weight:500; font-size:clamp(28px,3.6vw,40px); color:var(--ink); margin:0 0 24px; max-width:480px;">
+          If your portfolio company needs an operator, let's talk.
+        </h2>
+        <p style="font-family:var(--font-body); font-size:16px; line-height:1.65; color:var(--ink-soft); max-width:460px; margin:0 0 32px;">
+          I typically hear from investors first, and from the CEOs they back soon after. Either is a good place to start.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <a href="mailto:kw@kweliwashington.com" class="contact-link" style="width:fit-content;">kw@kweliwashington.com</a>
+          <a href="https://www.linkedin.com/in/kweli-washington-178458" target="_blank" rel="noopener" class="contact-link" style="width:fit-content;">linkedin.com/in/kweli-washington</a>
         </div>
       </div>
     </div>
